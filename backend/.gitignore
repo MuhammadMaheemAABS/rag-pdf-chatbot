@@ -1,0 +1,68 @@
+# ================
+# Python (Backend)
+# ================
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables (SECRETS!)
+.env
+.env.local
+.env.*.local
+
+# Chroma DB (contains embeddings + document data — can be large & regenerated)
+chroma_db/
+
+# Logs
+*.log
+
+# ================
+# Node.js / Next.js (Frontend)
+# ================
+
+# Dependency directories
+node_modules/
+
+# Build output
+.next/
+out/
+build/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.vercel
