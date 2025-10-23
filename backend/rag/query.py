@@ -38,28 +38,6 @@ class RAGQueryEngine:
         context_chunks = list(dict.fromkeys(result["documents"][0][:3]))  # Use up to 3 chunks instead of 2
         context = "\n\n".join(context_chunks)
 
-        # Check if the context contains relevant information
-        question_lower = question.lower()
-        context_lower = context.lower()
-        
-        # Extract key terms (exclude common question words and short words)
-        common_words = {
-            'what', 'is', 'are', 'the', 'a', 'an', 'of', 'to', 'in', 'for', 'on', 'at', 'by', 'with', 'as', 'and', 'or', 'but', 'if', 'then', 'than', 'so', 
-            'how', 'why', 'when', 'where', 'who', 'which', 'meant', 'means', 'meaning', 'mean', 'does', 'do', 'did', 'can', 'could', 'will', 'would', 'should', 
-            'may', 'might', 'must', 'define', 'definition', 'explain', 'tell', 'describe', 'about', 'that', 'this', 'these', 'those'
-        }
-        import re
-        # Remove punctuation and split
-        question_clean = re.sub(r'[^\w\s]', '', question_lower)
-        query_terms = [word for word in question_clean.split() if len(word) > 2 and word not in common_words]
-        
-        # Check if any key terms appear in context
-        has_relevant_content = len(query_terms) == 0 or any(term in context_lower for term in query_terms)
-        
-        if not has_relevant_content:
-            # If no key query terms found in context, likely irrelevant
-            return "I don't know based on the provided document."
-
         if mode == "detailed":
             system_prompt = (
                 "You are an expert tutor who explains concepts clearly and thoroughly. "
