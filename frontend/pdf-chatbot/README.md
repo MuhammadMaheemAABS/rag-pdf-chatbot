@@ -34,3 +34,33 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Installed libraries
+
+This project now includes several commonly-used libraries installed via pnpm:
+
+- axios — HTTP client (useful for REST calls).
+- @tanstack/react-query — Modern data fetching and caching library (v5).
+- @mui/material with @emotion/react and @emotion/styled — Material UI v5 components and Emotion styling.
+- animejs — Lightweight animation library.
+- react-query — (legacy v3) installed as an alias if you need older examples; prefer @tanstack/react-query for new code.
+
+Quick usage notes:
+
+- For data fetching and caching, import and setup a QueryClient from `@tanstack/react-query`. Example:
+
+  ```ts
+  import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+  const queryClient = new QueryClient();
+
+  // Wrap your app with <QueryClientProvider client={queryClient}>...
+  ```
+
+- For MUI, you can import components directly, e.g. `import Button from '@mui/material/Button'`. Emotion is required for styling and is installed.
+
+- To make HTTP requests with axios: `import axios from 'axios'`.
+
+- For animations: `import anime from 'animejs'`.
+
+Note: During installation you may see a peer dependency warning for `react-query@3` expecting React <=18. This project uses React 19; `@tanstack/react-query` v5 is compatible with React 19 and is the recommended package for new code.
